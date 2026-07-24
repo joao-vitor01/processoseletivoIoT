@@ -18,11 +18,10 @@
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
     [ "ldr1:VCC", "esp:3V3", "red", [ "v0" ] ],
-    [ "ldr1:GND", "esp:GND", "black", [ "v0" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h19.2", "v95.6" ] ],
     [ "ldr1:AO", "esp:34", "blue", [ "v0" ] ],
-    [ "btn1:1.l", "esp:GND", "black", [ "h0" ] ],
-    [ "esp:4", "btn1:2.l", "green", [ "h105.6", "v-9.6" ] ],
-    [ "esp:GND.3", "btn1:1.l", "black", [ "h48", "v38.4" ] ]
+    [ "btn1:1.l", "esp:GND.3", "black", [ "h-51", "v-41.2" ] ],
+    [ "esp:4", "btn1:2.l", "green", [ "h105.6", "v-9.6" ] ]
   ],
   "dependencies": {}
 }
