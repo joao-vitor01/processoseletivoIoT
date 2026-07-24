@@ -83,6 +83,5 @@ def main():
         verificar_sensor_pecas()
         verificar_botao_reset()
         time.sleep_ms(INTERVALO_LOOP_MS)
-
 if __name__ == "__main__":
     main()
