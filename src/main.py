@@ -32,6 +32,7 @@ def ler_luminosidade():
     #Le o valor bruto do ADC ligado ao LDR (0-4095 no ESP32)
     return ldr.read()
 
+
 def verificar_sensor_pecas():
     global estado_livre, tempo_inicio_bloqueio, alerta_microparada_emitido, contador_pecas
 
@@ -62,13 +63,11 @@ def verificar_botao_reset():
     tempo_agora = time.ticks_ms()
 
     if leitura_botao != ultimo_estado_botao:
-        # mudanca na leitura bruta: reinicia o timer de debounce
         tempo_ultima_mudanca_botao = tempo_agora
         ultimo_estado_botao = leitura_botao
 
     if time.ticks_diff(tempo_agora, tempo_ultima_mudanca_botao) > DEBOUNCE_MS:
-        # leitura ficou estavel pelo tempo de debounce: confirma a transicao
-        if leitura_botao == 0 and estado_botao_estavel == 1:
+        if leitura_botao == 1 and estado_botao_estavel == 0:
             contador_pecas = 0
             estado_livre = True
             tempo_inicio_bloqueio = None
@@ -83,5 +82,6 @@ def main():
         verificar_sensor_pecas()
         verificar_botao_reset()
         time.sleep_ms(INTERVALO_LOOP_MS)
+
 if __name__ == "__main__":
     main()
